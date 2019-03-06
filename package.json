@@ -1,0 +1,90 @@
+{
+  "name": "@k14v/react-i18njs",
+  "version": "0.0.1",
+  "description": "React utilities for internationalization",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text ava",
+    "test:watch": "cross-env NODE_ENV=test ava --watch",
+    "build": "babel src --out-dir lib --ignore **/*.spec.js",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k14v/react-i18njs.git"
+  },
+  "homepage": "https://github.com/k14v/react-i18njs#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "keywords": [
+    "react",
+    "i18n",
+    "l10n",
+    "context",
+    "hooks"
+  ],
+  "author": {
+    "name": "k14v",
+    "url": "https://github.com/k14v"
+  },
+  "contributors": [
+    {
+      "name": "Rubeniskov",
+      "email": "me@rubeniskov.com",
+      "url": "https://rubeniskov.com"
+    },
+    {
+      "name": "Kelvur",
+      "url": "https://github.com/Kelvur"
+    }
+  ],
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "ie": "11"
+          },
+          "useBuiltIns": "usage"
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-export-namespace-from"
+    ]
+  },
+  "ava": {
+    "files": [
+      "src/**/*.spec.js"
+    ],
+    "require": [
+      "@babel/register",
+      "./test/shims"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "src/**/index.js",
+      "src/**/*.spec.js",
+      "test"
+    ]
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+  }
+}

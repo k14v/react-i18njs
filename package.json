@@ -82,7 +82,8 @@
     ]
   },
   "dependencies": {
-    "memoize-one": "^5.0.0"
+    "memoize-one": "^5.0.0",
+    "hoist-non-react-statics": "^3.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

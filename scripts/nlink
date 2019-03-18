@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var path = require('path')
+var fs = require('fs')
+var argDir = process.argv[2];
+var cwdDir = process.cwd();
+var scanDir = path.join(cwdDir, argDir);
+
+fs.readdir(scanDir, function(err, files){
+  if(err) {
+    console.error(err);
+    return process.exit(1);
+  }
+  for (var i=0; i<files.length; i++) {
+    const file = files[i]
+    fs.writeFile(path.join(cwdDir, file) , 'module.exports = require(\'./'+path.join(argDir, file)+'\')', (err) => {
+        if (err) throw err;
+        process.stderr.write('File linked! ' + path.join(scanDir, file) + ' -> '+path.join(cwdDir, file)+'\n')
+    });
+  }
+});

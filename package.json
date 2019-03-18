@@ -1,11 +1,12 @@
 {
   "name": "@k14v/react-i18njs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React utilities for internationalization",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text ava",
     "test:watch": "cross-env NODE_ENV=test ava --watch",
+    "postbuild": "./scripts/nlink lib",
     "build": "babel src --out-dir lib --ignore **/*.spec.js",
     "prepublishOnly": "npm run build",
     "prepack": "npm run build",

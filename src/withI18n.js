@@ -6,8 +6,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import useI18n from './useI18n';
 
 
-const addExtraProps = (mapI18nToProps = i18n => ({trls: i18n.trls}), props, i18n, ref) => ({
-  ref,
+const addExtraProps = (mapI18nToProps = i18n => ({trls: i18n.trls}), props, i18n) => ({
   ...props,
   ...mapI18nToProps(i18n),
 });
@@ -15,7 +14,7 @@ const addExtraProps = (mapI18nToProps = i18n => ({trls: i18n.trls}), props, i18n
 export default mapI18nToProps => (Component) => {
   const WrapperComponent = React.forwardRef((props, ref) => {
     const i18n = useI18n();
-    return React.createElement(Component, addExtraProps(mapI18nToProps, props, i18n, ref));
+    return <Component {...addExtraProps(mapI18nToProps, props, i18n)} ref={ref} />;
   });
   WrapperComponent.displayName = `withI18n(${Component.displayName || Component.name})`;
   WrapperComponent.WrappedComponent = Component;

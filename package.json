@@ -4,10 +4,10 @@
   "description": "React utilities for internationalization",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text ava",
-    "test:watch": "cross-env NODE_ENV=test ava --watch",
+    "test": "jest --watch",
+    "test:nowatch": "jest",
     "postbuild": "./scripts/nlink lib",
-    "build": "babel src --out-dir lib --ignore **/*.spec.js",
+    "build": "babel src --out-dir lib --ignore **/*.test.js",
     "prepublishOnly": "npm run build",
     "prepack": "npm run build",
     "lint": "eslint src",
@@ -47,41 +47,6 @@
     }
   ],
   "license": "MIT",
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "ie": "11"
-          },
-          "useBuiltIns": "usage"
-        }
-      ],
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-export-namespace-from"
-    ]
-  },
-  "ava": {
-    "files": [
-      "src/**/*.spec.js"
-    ],
-    "require": [
-      "@babel/register",
-      "./test/shims"
-    ]
-  },
-  "nyc": {
-    "exclude": [
-      "src/**/index.js",
-      "src/**/*.spec.js",
-      "test"
-    ]
-  },
   "dependencies": {
     "hoist-non-react-statics": "^3.3.0",
     "memoize-one": "^5.0.0"
@@ -121,5 +86,30 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/src/**/*.test.{js,jsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ]
   }
 }

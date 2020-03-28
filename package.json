@@ -1,6 +1,6 @@
 {
   "name": "@k14v/react-i18njs",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "React utilities for internationalization",
   "main": "index.js",
   "scripts": {

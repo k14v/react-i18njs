@@ -22,7 +22,8 @@ describe('useI18n', () => {
 
   it('translates correctly', async () => {
     const i18n = await fetchI18n();
-    render(<I18nProvider i18n={i18n}><Consumer /></I18nProvider>);
+    const { getByText } = render(<I18nProvider i18n={i18n}><Consumer word="Perro" /></I18nProvider>);
+    expect(getByText('Dog')).toBeInTheDocument();
   });
 
 });

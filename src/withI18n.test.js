@@ -27,11 +27,11 @@ describe('withI18n', () => {
     render(<I18nProvider i18n={i18n}><WrappedComponent /></I18nProvider>);
   });
 
-  // it('translates correctly', async () => {
-  //   const i18n = fetchI18n();
-  //   const { getByText } = render(<I18nProvider i18n={i18n}><WrappedComponent word="Teléfono" /></I18nProvider>);
-  //   expect(getByText('Phone')).toBeInTheDocument();
-  // });
+  it.skip('translates correctly', async () => {
+    const i18n = fetchI18n();
+    const { getByText } = render(<I18nProvider i18n={i18n}><WrappedComponent word="Teléfono" /></I18nProvider>);
+    expect(getByText('Phone')).toBeInTheDocument();
+  });
 
   it('forwards the ref', async () => {
     const INITIAL_VALUE = 'Popeye';

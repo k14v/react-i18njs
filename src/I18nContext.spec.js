@@ -2,12 +2,10 @@
 import React from 'react';
 // Testing
 import test from 'ava';
-import { render, cleanup } from '@testing-library/react';
+import render from '@test/customRender';
 import sinon from 'sinon';
-import { Consumer } from './testUtils';
+import { Consumer } from '@test/testUtils';
 
-
-test.afterEach(cleanup);
 
 test('it should throw a warning, when try to use a consumer without provider', (t) => {
   const warnSpy = sinon.spy(console, 'warn');

@@ -2,14 +2,12 @@
 import React from 'react';
 // Testing
 import test from 'ava';
-import { render, cleanup } from '@testing-library/react';
-import { fetchI18n } from './testUtils';
+import render from '@test/customRender';
+import { fetchI18n } from '@test/testUtils';
 // Components
 import I18nProvider from './I18nProvider';
 import useI18n from './useI18n';
 
-
-test.afterEach(cleanup);
 
 const Consumer = ({word = 'Teléfono'}) => {
   const i18n = useI18n();

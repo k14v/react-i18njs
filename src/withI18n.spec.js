@@ -2,16 +2,14 @@
 import React, { useRef } from 'react';
 // Testing
 import test from 'ava';
-import { render, cleanup } from '@testing-library/react';
+import render from '@test/customRender';
 import sinon from 'sinon';
-import { fetchI18n } from './testUtils';
+import { fetchI18n } from '@test/testUtils';
 // Components
 import I18nProvider from './I18nProvider';
 // HOC
 import withI18n from './withI18n';
 
-
-test.afterEach(cleanup);
 
 const BaseComponent = ({trls, word = 'Perro'}) => <span>{trls.__(word)}</span>;
 

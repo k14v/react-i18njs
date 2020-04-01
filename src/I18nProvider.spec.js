@@ -2,13 +2,11 @@
 import React from 'react';
 // Testing
 import test from 'ava';
-import { render, cleanup } from '@testing-library/react';
-import { fetchI18n, Consumer } from './testUtils';
+import render from '@test/customRender';
+import { fetchI18n, Consumer } from '@test/testUtils';
 // Components
 import I18nProvider from './I18nProvider';
 
-
-test.afterEach(cleanup);
 
 test('render without errors', async (t) => {
   const i18n = await fetchI18n();

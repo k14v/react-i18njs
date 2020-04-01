@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 // Utils
 import i18njs from '@k14v/i18njs';
 // Context
-import I18nContext from './I18nContext';
+import I18nContext from '../src/I18nContext';
 
 
 export const I18N_DATA = {

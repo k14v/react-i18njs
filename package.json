@@ -64,7 +64,21 @@
       "@babel/plugin-syntax-dynamic-import",
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-export-namespace-from"
-    ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          [
+            "module-resolver",
+            {
+              "alias": {
+                "@test": "./test/"
+              }
+            }
+          ]
+        ]
+      }
+    }
   },
   "ava": {
     "files": [
@@ -94,21 +108,21 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/register": "^7.9.0",
     "@k14v/i18njs": "0.0.8",
-    "ava": "^1.2.1",
+    "@testing-library/react": "^10.0.2",
+    "ava": "^3.5.2",
     "babel-eslint": "^10.0.1",
-    "browser-env": "^3.2.5",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "browser-env": "^3.3.0",
     "cross-env": "^5.2.0",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.9.1",
     "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.12.4",
     "husky": "^1.3.1",
-    "nyc": "^13.2.0",
+    "nyc": "^15.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",

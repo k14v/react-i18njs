@@ -97,7 +97,7 @@
     ]
   },
   "dependencies": {
-    "hoist-non-react-statics": "^3.3.0"
+    "hoist-non-react-statics": "^3.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

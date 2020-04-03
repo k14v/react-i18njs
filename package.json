@@ -60,11 +60,6 @@
       ],
       "@babel/preset-react"
     ],
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-export-namespace-from"
-    ],
     "env": {
       "test": {
         "plugins": [
@@ -102,9 +97,6 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",

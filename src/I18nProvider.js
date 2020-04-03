@@ -14,9 +14,9 @@ const I18nProvider = ({i18n, children}) => {
     () => i18n.subscribe(
       ({type}) => {
         if (type === I18N_EVENTS.LOADED) setI18n(value);
-      }
+      },
     ),
-    [i18n]
+    [i18n],
   );
 
   return (
